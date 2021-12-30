@@ -18,3 +18,11 @@
 /phpunit.xml
 .phpunit.result.cache
 ###< phpunit/phpunit ###
+
+#Template#
+/public/css
+/public/icons
+/public/images
+/public/js
+/public/scss
+/public/vendor
