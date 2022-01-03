@@ -23,7 +23,7 @@ class AppFixtures extends Fixture
     
         ]);
 
-        UserEntityFactory::createMany(10);
+      
 
         $manager->flush();
     }

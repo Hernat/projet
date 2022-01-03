@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UserEntityRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -29,6 +31,23 @@ class UserEntity implements UserInterface,  PasswordAuthenticatedUserInterface
     private $password;
 
     private $plainPassword;
+
+    #[ORM\Column(type: 'string', length: 50)]
+    private $name;
+
+    #[ORM\Column(type: 'boolean')]
+    private $isActive;
+
+    #[ORM\Column(type: 'string', length: 50)]
+    private $address;
+
+    #[ORM\ManyToMany(targetEntity: Level::class, inversedBy: 'idUser')]
+    private $idLevel;
+
+    public function __construct()
+    {
+        $this->idLevel = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -121,6 +140,66 @@ class UserEntity implements UserInterface,  PasswordAuthenticatedUserInterface
     public function setPlainPassword(string $plainPassword): self
     {
         $this->plainPassword = $plainPassword;
+        return $this;
+    }
+
+    public function getName(): ?string
+    {
+        return $this->name;
+    }
+
+    public function setName(string $name): self
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    public function getIsActive(): ?bool
+    {
+        return $this->isActive;
+    }
+
+    public function setIsActive(bool $isActive): self
+    {
+        $this->isActive = $isActive;
+
+        return $this;
+    }
+
+    public function getAddress(): ?string
+    {
+        return $this->address;
+    }
+
+    public function setAddress(string $address): self
+    {
+        $this->address = $address;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Level[]
+     */
+    public function getIdLevel(): Collection
+    {
+        return $this->idLevel;
+    }
+
+    public function addIdLevel(Level $idLevel): self
+    {
+        if (!$this->idLevel->contains($idLevel)) {
+            $this->idLevel[] = $idLevel;
+        }
+
+        return $this;
+    }
+
+    public function removeIdLevel(Level $idLevel): self
+    {
+        $this->idLevel->removeElement($idLevel);
+
         return $this;
     }
 
