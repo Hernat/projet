@@ -23,6 +23,8 @@
 /public/css
 /public/icons
 /public/images
-/public/js
+!/public/js/*
+/public/js/*
+!/public/js/app.js
 /public/scss
 /public/vendor

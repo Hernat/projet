@@ -1,0 +1,21 @@
+
+
+{% for user in users %}
+{% if  app.user.email != user.email %}
+    <tr>
+        <td>{{ user.name }}
+            {{ user.firstname }} </td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.address }}</td>
+        <td align="center">
+            <button type="button" data-id="{{user.id}}" data-url="{{path('delete_user', {'id': user.id})}}"  id="delete" class="btn btn-danger" data-toggle="popover" data-placement="top" title="Supprimer"><i class="fa fa-trash"></i></button> 
+
+            <button type="button" data-id="{{user.id}}" data-url="{{path('edit_form', {'id': user.id})}}" method="GET" id="edit" class="btn btn-info" data-toggle="popover" data-placement="top" title="Modifier"><i class="fa fa-edit"></i></button>
+        </td>
+    </tr>
+{% endif %}
+{% else %}
+    <tr>
+        <td colspan="3">Ajouter un email</td>
+    </tr>
+{% endfor %}
