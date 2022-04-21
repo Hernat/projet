@@ -30,6 +30,9 @@ class Level
     #[ORM\ManyToMany(targetEntity: Student::class, inversedBy: 'idLevel')]
     private $idStudent;
 
+    #[ORM\Column(type: 'string', length: 20)]
+    private $cycle;
+
     public function __construct()
     {
         $this->idUser = new ArrayCollection();
@@ -137,6 +140,18 @@ class Level
     public function removeIdStudent(Student $idStudent): self
     {
         $this->idStudent->removeElement($idStudent);
+
+        return $this;
+    }
+
+    public function getCycle(): ?string
+    {
+        return $this->cycle;
+    }
+
+    public function setCycle(string $cycle): self
+    {
+        $this->cycle = $cycle;
 
         return $this;
     }

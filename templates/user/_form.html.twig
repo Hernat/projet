@@ -1,0 +1,81 @@
+<div class="card">
+    <div class="card-header bg-primary">
+        <h4 class="card-title text-white ">Ajouter </h4>
+    </div>
+    <div class="card-body">
+        <form class="form-valide" id="main-form" action-url="{{ path('new_user')}}" method="POST" novalidate="novalidate">
+            <div class="row clearfix">
+                <div class=" col-md-6 ">
+                    <div class="form-group row">
+                        <label class="col-lg-3 col-form-label" for="val-username">Nom
+                            <span class="text-danger">*</span>
+                    </label>
+                        <div class="col-lg-6">
+                            <input type="text" class="form-control" id="val-username" name="val-name" placeholder="Enter a username..">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group row">
+                        <label class="col-lg-3 col-form-label" for="val-username">Prénom
+                            <span class="text-danger">*</span>
+                    </label>
+                        <div class="col-lg-6">
+                            <input type="text" class="form-control" id="val-username" name="val-username" placeholder="Enter a username..">
+                        </div>
+                    </div>
+                </div>
+                <div class=" col-md-6 ">
+                    <div class="form-group row">
+                        <label class="col-lg-3 col-form-label" for="val-email">Email <span class="text-danger">*</span>
+                         </label>
+                        <div class="col-lg-6">
+                            <input type="text" class="form-control" id="val-email" name="val-email" placeholder="Your valid email..">
+                        </div>
+                    </div>
+                </div>
+                <div class=" col-md-6 ">
+                    <div class="form-group row">
+                        <label class="col-lg-3 col-form-label" for="val-suggestions ">Adresse <span class="text-danger">*</span>
+                         </label>
+                        <div class="col-lg-6">
+                            <input type="text" class="form-control" id="val-suggestions" name="val-suggestions" placeholder="Your valid email..">
+                        </div>
+                    </div>
+                </div>
+                <div class=" col-md-6 ">
+                    <div class="form-group row">
+                        <label class="col-lg-3 col-form-label" for="val-password">Mot de passe <span class="text-danger">*</span>
+                         </label>
+                        <div class="col-lg-6">
+                            <input type="password" class="form-control" id="val-password" name="val-password" placeholder="Your valid email..">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class=" col-md-12 ">
+                <button id="validate-form" type="button" class="btn btn-primary btn-lg m-l-15 waves-effect">Enregistrer</button>
+            </div>
+    </div>
+    </form>
+</div>
+</div>
+
+<!-- <form class="form-valide" action="#" method="post" novalidate="novalidate">
+    <div class="form-group row">
+        <label class="col-lg-4 col-form-label" for="val-username">Username
+                            <span class="text-danger">*</span>
+                    </label>
+        <div class="col-lg-6">
+            <input type="text" class="form-control" id="val-username" name="val-username" placeholder="Enter a username..">
+        </div>
+
+    </div>
+</form>
+
+
+<!-- Jquery Validation -->
+<script script src="./vendor/jquery-validation/jquery.validate.min.js">
+</script>
+<!-- Form validate init -->
+<script src="./js/plugins-init/jquery.validate-init.js"></script>

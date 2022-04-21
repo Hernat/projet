@@ -47,4 +47,17 @@ class UserEntityRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    public function findAllUser($user)
+    {
+        $entityManager = $this->getEntityManager();
+        $query = $entityManager->createQuery(
+            "SELECT u
+            FROM App\Entity\UserEntity u
+            WHERE u.email !=  :user  
+            ORDER BY u.id DESC"
+        )->setParameter('user', $user);
+        // returns an array of Product objects
+        return $query->getResult();
+    }
 }

@@ -36,6 +36,9 @@ class Student
     #[ORM\ManyToMany(targetEntity: Level::class, mappedBy: 'idStudent')]
     private $idLevel;
 
+    #[ORM\Column(type: 'datetime_immutable')]
+    private $dateAt;
+
     public function __construct()
     {
         $this->idLevel = new ArrayCollection();
@@ -141,6 +144,18 @@ class Student
         if ($this->idLevel->removeElement($idLevel)) {
             $idLevel->removeIdStudent($this);
         }
+
+        return $this;
+    }
+
+    public function getDateAt(): ?\DateTimeImmutable
+    {
+        return $this->dateAt;
+    }
+
+    public function setDateAt(\DateTimeImmutable $dateAt): self
+    {
+        $this->dateAt = $dateAt;
 
         return $this;
     }
